@@ -46,30 +46,65 @@ export async function POST(request) {
     .filter(Boolean)
     .join("\n");
 
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  // مقصدها: هر کدام که تنظیم شده باشد (تلگرام، بله یا هر دو)
+  const targets = [];
+  if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+    targets.push({
+      name: "telegram",
+      url: `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
+      chatId: process.env.TELEGRAM_CHAT_ID,
+    });
+  }
+  if (process.env.BALE_BOT_TOKEN && process.env.BALE_CHAT_ID) {
+    targets.push({
+      name: "bale",
+      url: `https://tapi.bale.ai/bot${process.env.BALE_BOT_TOKEN}/sendMessage`,
+      chatId: process.env.BALE_CHAT_ID,
+    });
+  }
 
-  // بدون تنظیمات تلگرام: در حالت توسعه فقط در ترمینال چاپ می‌شود.
+  // بدون هیچ تنظیمی: در حالت توسعه فقط در ترمینال چاپ می‌شود.
   // در پروداکشن خطا برمی‌گردد تا سفارش بی‌صدا گم نشود.
-  if (!token || !chatId) {
+  if (targets.length === 0) {
     if (process.env.NODE_ENV !== "production") {
       console.log("[order]\n" + text);
       return NextResponse.json({ ok: true });
     }
-    console.error("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID تنظیم نشده است.");
+    console.error("هیچ مقصدی (تلگرام یا بله) در env تنظیم نشده است.");
     return NextResponse.json({ error: "not configured" }, { status: 503 });
   }
 
-  try {
-    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text }),
-    });
-    if (!res.ok) throw new Error(`telegram ${res.status}`);
+  const results = await Promise.allSettled(
+    targets.map(async (t) => {
+      const res = await fetch(t.url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: t.chatId, text }),
+        signal: AbortSignal.timeout(8000), // اگر سرور به پیام‌رسان دسترسی نداشت، گیر نکند
+      });
+      if (!res.ok) throw Object.assign(new Error(`${t.name} ${res.status}`), { isHttp: true });
+    })
+  );
+
+  // فقط نام مقصد و کد خطا؛ هیچ توکن یا آدرسی داخلش نیست
+  const describe = (err) =>
+    err?.isHttp
+      ? err.message
+      : [err?.name, err?.cause?.code].filter(Boolean).join(" ") || "unknown error";
+
+  const details = results.map((r, i) => ({
+    target: targets[i].name,
+    ok: r.status === "fulfilled",
+    ...(r.status === "rejected" && { reason: describe(r.reason) }),
+  }));
+
+  details.forEach((d) => {
+    if (!d.ok) console.error(`order send failed (${d.target}): ${d.reason}`);
+  });
+
+  // اگر حداقل یک مقصد دریافت کرد، موفق حساب می‌شود
+  if (details.some((d) => d.ok)) {
     return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("order send failed:", err);
-    return NextResponse.json({ error: "send failed" }, { status: 502 });
   }
+  return NextResponse.json({ error: "send failed", details }, { status: 502 });
 }
