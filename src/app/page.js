@@ -18,7 +18,7 @@ export default function Home() {
         <LandingPage />
         <Marquee />
         <ServicesPage />
-        <ProjectPage />
+        {/* <ProjectPage /> */}
         <WorkflowPage />
         <AboutPage />
         <OrderForm />
