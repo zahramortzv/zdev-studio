@@ -7,10 +7,10 @@ import { SpeedIcon, ShieldIcon, ChatIcon } from "../components/UI/Icons";
 
 // فقط همین‌ها نمایش داده می‌شود. اگر نخواستی، لینک را خالی بگذار.
 const OWNER = {
-  name: "زهرا",
+  name: "زهرا مرتضوی",
   initial: "ز",
   // مسیر عکس داخل پوشه‌ی public؛ اگر خالی بگذاری، آواتار نمایش داده می‌شود
-  photo: "/images/zahra.jpg",
+  photo: "/images/zahra.jpeg",
   role: "برنامه‌نویس فرانت‌اند",
   github: "https://github.com/zahramortzv",
   linkedin: "https://www.linkedin.com/in/zahramortzv",
