@@ -9,9 +9,10 @@ import { SpeedIcon, ShieldIcon, ChatIcon } from "../components/UI/Icons";
 const OWNER = {
   name: "زهرا مرتضوی",
   initial: "ز",
-  // مسیر عکس داخل پوشه‌ی public؛ اگر خالی بگذاری، آواتار نمایش داده می‌شود
+  // فایل عکس باید در پوشه‌ی public باشد. اگر داخل public/images گذاشتی: "/images/zahra.jpeg"
+  // اگر خالی بگذاری، آواتار نمایش داده می‌شود
   photo: "/images/zahra.jpeg",
-  role: "برنامه‌نویس فرانت‌اند",
+  role: "طراح و توسعه‌دهنده‌ی وب",
   github: "https://github.com/zahramortzv",
   linkedin: "https://www.linkedin.com/in/zahramortzv",
 };
@@ -25,7 +26,7 @@ const principles = [
   {
     icon: <ShieldIcon />,
     title: "شفاف و قابل‌اعتماد",
-    text: "محدوده‌ی کار، هزینه و زمان تحویل قبل از شروع پروژه مکتوب و مشخص می‌شود.",
+    text: "شرح خدمات، هزینه و زمان تحویل قبل از شروع پروژه مکتوب و مشخص می‌شود.",
   },
   {
     icon: <ChatIcon />,
@@ -61,7 +62,7 @@ function AboutPage() {
 
   return (
     <Section id="about">
-      <Title eyebrow="درباره من" text="پشت این سایت چه کسی است؟" />
+      <Title eyebrow="درباره من" text="سایت، چهره‌ی دیجیتال برند شماست" />
       <div className="grid items-start gap-10 lg:grid-cols-2">
         <Reveal>
           <div className="mb-6 flex items-center gap-4">
@@ -88,15 +89,24 @@ function AboutPage() {
           </div>
 
           <p className="text-base leading-9 text-navy md:text-lg">
-            سلام، من {OWNER.name} هستم؛ برنامه‌نویس فرانت‌اند. ZDEV Studio را راه
-            انداختم تا کسب‌وکارها سایتی سریع، مرتب و قابل‌اعتماد داشته باشند.
+            سایت اولین جایی است که مشتری درباره‌ی شما قضاوت می‌کند. ZDEV Studio
+            برای همین شکل گرفته است: طراحی دقیق، کدی تمیز و تجربه‌ای روان، از
+            اولین نگاه تا آخرین کلیک.
           </p>
           <p className="mt-4 text-base leading-9 text-muted md:text-lg">
-            هر پروژه را خودم از جلسه‌ی اول تا تحویل پیش می‌برم؛ یعنی کسی که با
-            شما صحبت می‌کند، همان کسی است که طراحی و کدنویسی را انجام می‌دهد.
-            پاسخ‌گویی سریع، قیمت و زمان مکتوب، و تحویل مرحله‌ای، سه چیزی است که
-            روی آن‌ها تعهد می‌دهم.
+            از اولین گفتگو تا روز انتشار، طراحی و کدنویسی پروژه‌ی شما به دست یک
+            نفر انجام می‌شود؛ یعنی ارتباط مستقیم، تصمیم‌های سریع و تحویل بدون
+            واسطه. شرح خدمات، قیمت و زمان تحویل هم پیش از شروع، مکتوب و توافق
+            می‌شود.
           </p>
+
+          <ul className="mt-6 flex flex-wrap gap-2" aria-label="ابزارها">
+            {["Next.js", "React", "Tailwind CSS", "طراحی ریسپانسیو", "سئوی پایه"].map((t) => (
+              <li key={t} className="rounded-full border border-line bg-surface px-4 py-1.5 text-sm text-navy">
+                {t}
+              </li>
+            ))}
+          </ul>
 
           {links.length > 0 && (
             <ul className="mt-6 flex flex-wrap gap-3">
