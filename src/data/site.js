@@ -19,7 +19,7 @@ export const CONTACT = {
 export const NAV_ITEMS = [
   { id: "home", label: "صفحه اصلی" },
   { id: "services", label: "خدمات" },
-  { id: "projects", label: "نمونه کارها" },
+  // { id: "projects", label: "نمونه کارها" },
   { id: "process", label: "فرایند کار" },
   { id: "about", label: "درباره ما" },
   { id: "faq", label: "سوالات متداول" },

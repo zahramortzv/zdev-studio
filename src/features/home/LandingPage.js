@@ -64,7 +64,7 @@ function LandingPage() {
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Button text="ثبت سفارش" href="#order" size="lg" glow />
-          <Button text="مشاهده نمونه کارها" href="#projects" variant="outline" size="lg" />
+          {/* <Button text="مشاهده نمونه کارها" href="#projects" variant="outline" size="lg" /> */}
         </div>
       </div>
 
