@@ -5,14 +5,13 @@ export const SITE = {
     "طراحی و توسعه سایت شرکتی، فروشگاه آنلاین و لندینگ‌پیج با Next.js؛ سریع، ریسپانسیو و آماده‌ی سئو.",
 };
 
-// هر مورد را که خالی بگذاری، در بخش «تماس با ما» نمایش داده نمی‌شود.
 export const CONTACT = {
-  phone: "", // مثلاً "09121234567"
-  whatsapp: "", // مثلاً "https://wa.me/989121234567"
-  telegram: "", // مثلاً "https://t.me/your_id"
-  instagram: "", // مثلاً "https://instagram.com/your_id"
-  email: "", // مثلاً "info@example.com"
-  address: "", // اختیاری
+  phone: "",
+  whatsapp: "",
+  telegram: "https://t.me/",
+  instagram: "https://instagram.com/",
+  email: ".",
+  address: "",
 };
 
 // href باید با id هر بخش یکی باشد

@@ -14,7 +14,7 @@ export const services = [
     {
         id: "3",
         title: "طراحی لندینگ پیج",
-        description: "صفحه‌های لندینگ جذاب و حرفه‌ای برای جذب مشتری و افزایش نرخ تبدیل.",
+        description: "صفحه‌های لندینگ جذاب و حرفه‌ای برای جذب مشتری و افزایش فروش.",
         icon: "/icons/landing-page.svg"
     },
     {

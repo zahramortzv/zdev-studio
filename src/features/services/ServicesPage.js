@@ -10,7 +10,7 @@ function ServicesPage() {
     <Section id="services" tone="soft">
       <Title
         text="خدمات ما"
-        subtitle="از معرفی ساده‌ی برند تا فروشگاه آنلاین کامل؛ هر چه برای حضور حرفه‌ای در اینترنت لازم دارید."
+        subtitle="از معرفی ساده‌ی برند تا فروشگاه آنلاین کامل؛ هر چه برای حضور حرفه‌ای در فضای دیجیتال لازم دارید."
       />
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((service, i) => (

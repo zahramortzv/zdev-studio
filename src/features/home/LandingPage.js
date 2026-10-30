@@ -59,8 +59,7 @@ function LandingPage() {
           </span>
         </h1>
         <p className="mt-6 max-w-xl text-base leading-8 text-white/90 md:text-xl md:leading-9">
-          ما در {SITE.name} وب‌سایت‌هایی می‌سازیم که کسب‌وکار شما را رشد می‌دهند و
-          تجربه‌ای روان و جذاب برای کاربران شما می‌سازند.
+          ما در {SITE.name} وب‌سایت‌هایی حرفه‌ای و متناسب با نیاز کسب‌وکار شما طراحی می‌کنیم تا حضوری مؤثر در فضای دیجیتال داشته باشید.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Button text="ثبت سفارش" href="#order" size="lg" glow />
