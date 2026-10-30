@@ -66,7 +66,7 @@ function LandingPage() {
           {/* <Button text="مشاهده نمونه کارها" href="#projects" variant="outline" size="lg" /> */}
         </div>
       </div>
-
+      {/*
       <a
         href="#services"
         aria-label="رفتن به بخش خدمات"
@@ -75,7 +75,7 @@ function LandingPage() {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="m6 9 6 6 6-6" />
         </svg>
-      </a>
+      </a> */}
     </section>
   );
 }
