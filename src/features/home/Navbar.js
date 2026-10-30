@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { NAV_ITEMS, SITE } from "@/data/site";
 import { HamburMenu, CloseIcon } from "../components/UI/Icons";
+import Logo from "../components/UI/Logo";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +69,13 @@ function Navbar() {
             }`}
             dir="ltr"
           >
-            {SITE.name}
+            <a
+              href="#home"
+              aria-label="صفحه اصلی"
+              className={solid ? "text-navy" : "text-white"}
+            >
+              <Logo size={36} />
+            </a>
           </a>
 
           <ul className="hidden lg:flex items-center gap-7">

@@ -70,11 +70,11 @@ function LandingPage() {
       <a
         href="#services"
         aria-label="رفتن به بخش خدمات"
-        className="absolute bottom-[9%] left-1/2 z-10 hidden -translate-x-1/2 md:block"
+        className="absolute bottom-6 left-1/2 z-10 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full border border-white/40 text-white animate-cue"
       >
-        <span className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/60 p-1.5">
-          <span className="h-2 w-1 rounded-full bg-white animate-cue" />
-        </span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
       </a>
     </section>
   );

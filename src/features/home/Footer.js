@@ -1,5 +1,6 @@
 import React from "react";
 import { NAV_ITEMS, SITE } from "@/data/site";
+import Logo from "../components/UI/Logo";
 
 function Footer() {
   const year = new Date().toLocaleDateString("fa-IR", { year: "numeric" });
@@ -7,9 +8,7 @@ function Footer() {
     <footer className="bg-navy text-white/80">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-10 md:flex-row md:justify-between md:px-8">
         <div className="text-center md:text-right">
-          <p className="text-xl font-bold text-white" dir="ltr">
-            {SITE.name}
-          </p>
+          <Logo className="text-white" />
           <p className="mt-1 text-sm">طراحی و توسعه سایت و فروشگاه آنلاین</p>
         </div>
         <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
