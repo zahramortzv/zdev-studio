@@ -64,18 +64,12 @@ function Navbar() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-8">
           <a
             href="#home"
-            className={`text-xl md:text-2xl font-bold tracking-wide ${
-              solid ? "text-navy" : "text-white"
-            }`}
+            aria-label="صفحه اصلی"
+            className={`text-xl md:text-2xl font-bold tracking-wide ${solid ? "text-navy" : "text-white"
+              }`}
             dir="ltr"
           >
-            <a
-              href="#home"
-              aria-label="صفحه اصلی"
-              className={solid ? "text-navy" : "text-white"}
-            >
-              <Logo size={36} />
-            </a>
+            <Logo size={36} />
           </a>
 
           <ul className="hidden lg:flex items-center gap-7">

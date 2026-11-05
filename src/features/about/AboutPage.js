@@ -5,16 +5,11 @@ import Title from "../components/UI/Title";
 import Reveal from "../components/UI/Reveal";
 import { SpeedIcon, ShieldIcon, ChatIcon } from "../components/UI/Icons";
 
-// فقط همین‌ها نمایش داده می‌شود. اگر نخواستی، لینک را خالی بگذار.
 const OWNER = {
-  name: "زهرا مرتضوی",
-  initial: "ز",
-  // فایل عکس باید در پوشه‌ی public باشد. اگر داخل public/images گذاشتی: "/images/zahra.jpeg"
-  // اگر خالی بگذاری، آواتار نمایش داده می‌شود
-  photo: "/images/zahra.jpeg",
-  role: "طراح و توسعه‌دهنده‌ی وب",
-  github: "https://github.com/zahramortzv",
-  linkedin: "https://www.linkedin.com/in/zahramortzv",
+  name: "ZDEV Studio ",
+  initial: "Z",
+  photo: "",
+  role: "",
 };
 
 const principles = [
@@ -66,15 +61,7 @@ function AboutPage() {
       <div className="grid items-start gap-10 lg:grid-cols-2">
         <Reveal>
           <div className="mb-6 flex items-center gap-4">
-            {OWNER.photo ? (
-              <Image
-                src={OWNER.photo}
-                alt={`عکس ${OWNER.name}`}
-                width={80}
-                height={80}
-                className="h-20 w-20 shrink-0 rounded-full object-cover ring-4 ring-primary/15"
-              />
-            ) : (
+            {(
               <div
                 aria-hidden="true"
                 className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-primary to-fuchsia-500 text-4xl font-bold text-white ring-4 ring-primary/15"
